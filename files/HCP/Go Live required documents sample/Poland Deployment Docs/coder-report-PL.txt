@@ -1,0 +1,2 @@
+Severity major, Drupal Commenting Standards, Internationalization, Drupal Security Checks, Drupal CodeSniffer, Drupal SQL Standards, Drupal Coding Standards
+

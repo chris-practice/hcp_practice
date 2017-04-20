@@ -1,0 +1,51 @@
+https://digitalpfizer.atlassian.net/secure/Dashboard.jspa : chris.pereira@pfizer.com/Pfizer@123
+https://sc2.omniture.com/spa/dist/launch.html?componentType=reports&defaultLandingPage=true&ssSession=c2698a70c9bc192dbffce83ce631d78b&jpj=5926943344802#/
+https://digitalpfizer.zendesk.com/agent/  : pereic25/Mumbai_jan@2017
+https://digitalpfizer.signin.aws.amazon.com/console  pass: 1qaz!QAZ
+https://www.digitalpfizer.com/capabilities : pereic25/Mumbai_apr@2016
+https://github.com/pfizer
+https://pfizer.box.com/files/0/f/5509874697/Market_Info?utm_source=trans&utm_medium=email&utm_campaign=collab%2Bauto%20accept%20user
+https://pi.digitalpfizer.com/pfizer_login   pereic25/Mumbai_sep@2016
+https://app.box.com/ : chris.pereira@tcs.com/Mumbai_sep@2016
+https://app.smartsheet.com/b/home : chris.pereira@pfizer.com/Mumbai_sep@2016
+http://s3.amazonaws.com/urlfromlocalsettings
+https://smartcapture.io/auth/login
+https://digitalpfizer.com/request/SRid
+
+https://www.digitalpfizer.com/site
+
+pereic/Mumberi_sep@2016
+5c2a0339ea69210082beff5fe2f4c5850e721c70
+
+
+
+https://app.box.com/s/a2vuvb8jl2k36mopzy8sm4egpjzeicf5     ---tables to skip
+
+
+
+
+slack
+
+Two-Factor Authentication Backup Codes
+Team: DET - https://det.slack.com/
+Email: chris.pereira@pfizer.com
+
+216019424
+406505148
+606405990
+632860683
+872460216
+737567034
+829213301
+335170818
+919552138
+113369837
+
+pfizerdigital
+FlyingPharmaWeb2016
+
+660713
+Sonu@9876
+
+
+997554aa6d0fece87e3520f884d56e6e1e6a5476

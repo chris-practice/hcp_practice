@@ -1,0 +1,47 @@
+Hi ,
+
+We have started UAT for Portugal and will be sharing the UAT findings by 13th Sep. Also, we found issues in the KT documents shared with us, please see the details below:
+
+1. Platform version- As per PI Tool Report, Dev5 Platform version is v2.7.6. But latest stable platform version is v2.7.5. Please revert it back to v2.7.5.
+
+1. Deployment Verification Checklist- Deployment Verification Checklist is incomplete. Please find the attached Checklist and incomplete fields are highlighted in red. Please provided your input on incomplete fields and revert it back to me.
+
+3. QA Document: QA document was not shared as a part of KT. https://app.box.com/s/lqdvyau7w0gtwelevqnp3ko35d8a80nc 
+
+4. Epic Ticket- Please provide the below additional information:
+
+   
+   1. There is no clarity on features of 2.7 being added. Please refer https://digitalpfizer.atlassian.net/browse/MD-1636.
+
+   2. Following JIRA tickets are still open - PUVTMM-285,  PUVTMM-291, PUVTMM-378,  PUVTMM-379
+
+
+5. We have below observations in SDLC / Deployment document:
+ 
+   1. Please provide Request Number
+
+   2. As per Row #7, Dev5 Platform version is v2.7.6 but as per SDLC document ,platform version of upgraded environment should be 2.7.5. Please verify.
+
+   4. Please verify if CMDB id is correct and compliance status is confirmed by solution center owner.
+
+   5. Please confirm the Business Owner, BT representative and BT Project Manager.
+
+   6. Customer feedback and quick poll details status are in N/A state.
+
+   7. In Deployment instructions-  Please mention the instructions for moving Amazon S3 buckets for CSS/JS and brand json files from stage to prod.
+  
+   8. Security approval required.
+
+   9. Test cases not provided.
+
+   10. Confirm whether we have to skip the tables mentioned in the document.
+
+
+6. Omniture report - Please confirm if omniture tracking is not inplemented for Video Tracking, File Download and Customer Feedback Poll - Complete?
+
+
+7. Please verify and confirm the content freeze period.
+
+8. Please provide the Self Service users list and content editor list.
+
+9. Please provide the Market customization details if any additional feature is implemented.

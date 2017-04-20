@@ -1,0 +1,247 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function ajax_form_menu(){
+    $menu['ajax_form'] = array
+    (
+        'title' => 'Ajax multistep form example',
+        'description' => 'Creates an ajax multistep form',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('ajax_form_multistep_form'),
+        'access callback' => TRUE,
+    );
+
+    return $menu;
+}
+
+
+function ajax_form_multistep_form($form, &$form_state)
+{
+    // If $form_state['step'] is not set, we set it to 1
+    $form_state['step'] = isset($form_state['step']) ? $form_state['step'] : 1;
+
+    // Add a wrapper div that will be used by the Form API to update the form using AJAX
+    $form['#prefix'] = '<div id="ajax_form_multistep_form">';
+    $form['#suffix'] = '</div>';
+
+    // Depending on which step of the form we are on, we output different form fields
+    switch($form_state['step'])
+    {
+        // Step 1
+        case 1:
+            $default_value = '';
+            if(isset($form_state['values']['step_1']))
+            {
+                $default_value = $form_state['values']['step_1'];
+            }
+            elseif(isset($form_state['storage']['step_1']))
+            {
+                $default_value = $form_state['storage']['step_1'];
+            }
+
+            $form['step_1'] = array
+            (
+                '#type' => 'textfield',
+                '#title' => t('Enter something alphabetical'),
+                '#required' => TRUE,
+                '#default_value' => $default_value,
+            );
+            break;
+
+        // Step 2
+        case 2:
+            $default_value = '';
+            if(isset($form_state['values']['step_2']))
+            {
+                $default_value = $form_state['values']['step_2'];
+            }
+            elseif(isset($form_state['storage']['step_2']))
+            {
+                $default_value = $form_state['storage']['step_2'];
+            }
+
+            $form['step_2'] = array
+            (
+                '#type' => 'textfield',
+                '#title' => t('Enter something numerical'),
+                '#required' => TRUE,
+                '#default_value' => $default_value,
+            );
+
+            break;
+
+        // Step 3
+        case 3:
+            $default_value = '';
+            if(isset($form_state['values']['step_3']))
+            {
+                $default_value = $form_state['values']['step_3'];
+            }
+            elseif(isset($form_state['storage']['step_3']))
+            {
+                $default_value = $form_state['storage']['step_3'];
+            }
+
+            $form['step_3'] = array
+            (
+                '#type' => 'textfield',
+                '#title' => t('Enter something alphanumerical'),
+                '#required' => TRUE,
+                '#default_value' => $default_value,
+            );
+
+            break;
+    }
+
+    // Create a container for our buttons
+    $form['buttons'] = array
+    (
+        '#type' => 'container',
+    );
+    // If we are on step 1, we do not want a back button
+    if($form_state['step'] !== 1)
+    {
+        $form['buttons']['back'] = array
+        (
+            '#type' => 'submit',
+            '#value' => t('Back'),
+            // Setting #limit_validation_errors to an empty array
+            // ensures that the form fields are not validated when
+            // the back button is used. Otherwise, we will get errors
+            '#limit_validation_errors' => array(),
+            // We need to create a #submit function for this button, or else
+            // #limit_validation_errors has no effect. So we create a submit
+            // function specifically for this submit button.
+            '#submit' => array('ajax_form_multistep_form_back_submit'),
+            '#ajax' => array
+            (
+                // We pass in the wrapper we created at the start of the form
+                'wrapper' => 'ajax_form_multistep_form',
+                // We pass a callback function we will use later to render the form for the user
+                'callback' => 'ajax_form_multistep_form_ajax_callback',
+            ),
+        );
+    }
+    // We only want a forward button if we are not on the last step of the form
+    if($form_state['step'] !== 3)
+    {
+        $form['buttons']['forward'] = array
+        (
+            '#type' => 'submit',
+            '#value' => t('Next'),
+            '#ajax' => array
+            (
+                // We pass in the wrapper we created at the start of the form
+                'wrapper' => 'ajax_form_multistep_form',
+                // We pass a callback function we will use later to render the form for the user
+                'callback' => 'ajax_form_multistep_form_ajax_callback',
+            ),
+        );
+    }
+    // We only want a submit button if we are on the last step of the form
+    else
+    {
+        $form['buttons']['submit'] = array
+        (
+            '#type' => 'submit',
+            '#value' => t('Submit'),
+            '#ajax' => array
+            (
+                // We pass in the wrapper we created at the start of the form
+                'wrapper' => 'ajax_form_multistep_form',
+                // We pass a callback function we will use later to render the form for the user
+                'callback' => 'ajax_form_multistep_form_ajax_callback',
+            ),
+        );
+    }
+
+    return $form;
+}
+
+function ajax_form_multistep_form_validate($form, &$form_state)
+{
+    // First we set up a switch for each of our three steps
+    switch($form_state['step'])
+    {
+        case "1":
+            // Check that the first value is alphabetic
+            if(!preg_match('/^[a-zA-Z]+$/', $form_state['values']['step_1']))
+            {
+                form_set_error('step_1', t('Alphabetic characters only please'));
+            }
+
+            break;
+
+        case "2":
+            // Check that the second value is numeric
+            if(preg_match('/\D/', $form_state['values']['step_2']))
+            {
+                form_set_error('step_2', t('Numeric characters only please'));
+            }
+
+            break;
+
+        case "3":
+            // Check that the third value is alphanumeric
+            if(!preg_match('/^[a-zA-Z0-9]+$/', $form_state['values']['step_3']))
+            {
+                form_set_error('step_3', t('Alphanumeric characters only please'));
+            }
+
+            break;
+
+    }
+}
+
+function ajax_form_multistep_form_back_submit($form, &$form_state)
+{
+    $form_state['step']--;
+
+    // Because this is a multi-step form, we always need to rebuild the form
+    // on every step, even after submission. This allows our form to be completely
+    // Ajaxified without ever requiring a page load.
+    $form_state['rebuild'] = TRUE;
+}
+
+function ajax_form_multistep_form_submit($form, &$form_state)
+{
+    // First we determine which step we are on, and save the
+    // submitted values to $form_state['storage']. This will
+    // allow our submitted values to persist.
+    $step = $form_state['step'];
+    $form_state['storage']['step_' . $step] = $form_state['values']['step_' . $step];
+
+    // Check to see if the next/forward button was clicked
+    if(isset($form_state['values']['forward']) && $form_state['values']['op'] == $form_state['values']['forward'])
+    {
+        // Increase the step by one, to move on to the next step
+        $form_state['step']++;
+    }
+    // Check to see if the final step has been submitted
+    elseif(isset($form_state['values']['submit']) && $form_state['values']['op'] == $form_state['values']['submit'])
+    {
+        // Here we will collect the data and show the submitted values to the user in a message.
+        // In a real-world application of this form, you would use the submitted values to complete the
+        // purpose of the form - save them to the database and/or send an email and/or display something
+        // to the user etc. The following is just s simple example to show how the values can be used.
+        $items = array($form_state['storage']['step_1'], $form_state['storage']['step_2'], $form_state['storage']['step_3']);
+        drupal_set_message(t('You submitted the following values:!values', array('!values' => theme('item_list', array('items' => $items)))));
+
+        // The form has been completed, so we want to return the user to step 1
+        // as well as clear any saved values.
+        $form_state['step'] = 1;
+        $form_state['storage'] = array();
+    }
+
+    // As in ajax_form_multistep_form_back_submit(), we need to set
+    // $form_state['rebuild'] to TRUE, in able to ensure that our
+    // our form is rebuilt, allowing for the multi-step process
+    $form_state['rebuild'] = TRUE;
+}
+
+function ajax_form_multistep_form_ajax_callback($form, &$form_state)
+{
+    return $form;
+}

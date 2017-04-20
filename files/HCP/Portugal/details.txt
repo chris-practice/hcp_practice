@@ -1,0 +1,18 @@
+Dear Chris, 
+
+Creating this ticket for Portugal HCP 2.7 Market Setup and Roll out Activities - 
+
+Below is the list of activities which needs to be performed - 
+1.	 Review the KT Documents and give a sign off on KT Documents - by 8 Sep 
+2.	Start Dev5 QA on 8th Aug and complete this by - 13 Sep
+3.	Log the issues in JIRA - 13 Sep 
+4.	Follow-up and Close the tickets - 15 Sep
+5.	Dev5 to stage move 26 Sep 
+6.	Dev4 to Dev3 Sync - 4 Oct
+7.	Start cloning of rest all Dev environments from 5 Oct and complete it by 11 Oct.
+Other Details - 
+•	Epic Ticket -  https://digitalpfizer.atlassian.net/browse/PUVTMM-273
+•	Dev5 Url - http://pfpfproptdev5.prod.acquia-sites.com
+•	Site Guard - pfizerdigital / FlyingPharmaWeb2016
+•	KT Documents on Box -https://app.box.com/s/4tx7cmbc07hotoa9c075dp3kfjq1si2v
+•	Box QA Details Location - I have created one here , please share all details herehttps://app.box.com/s/lqdvyau7w0gtwelevqnp3ko35d8a80nc 

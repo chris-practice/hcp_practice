@@ -1,0 +1,4 @@
+https://pfadvilcomdev2.prod.acquia-sites.com
+Auth: pfizerdigital/FlyingPharmaWeb2016
+Creds: btsupport/Pfizer@123
+content type:FAQ

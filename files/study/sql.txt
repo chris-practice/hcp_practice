@@ -1,0 +1,183 @@
+/**
+* Disable Development module.
+*/
+function hcp_overrides_update_7109() {
+  $development_modules = array(
+    'coder',
+    'coder_review',
+    'coder_upgrade',
+    'devel',
+    'devel_contrib',
+    'devel_generate',
+    'devel_node_access',
+    'metatag_devel'
+  );
+  foreach($development_modules as $module){
+    if (module_exists($module)) {
+      module_disable(array($module));
+     drupal_uninstall_modules(array($module));
+    }
+  }
+}
+ 
+/**
+* Enable Development module.
+*/
+
+function hcp_overrides_update_7010() {
+  $modules = array('pfizer_grv_webhooks');
+  module_enable($modules);
+}
+
+
+
+
+git diff "filename"
+git add -p
+git add --interactive
+
+cat filename
+cat filename > file2 (copy file)
+cat filename | less
+cat file1 file2 (concat)
+
+chmod -R 777 filename
+
+http://www.wikihow.com/Find-a-File-in-Linux
+
+http://unix.stackexchange.com/questions/21169/how-to-search-for-a-word-in-entire-content-of-a-directory-in-linux
+
+Composer: https://getcomposer.org/download/
+          http://www.drush.org/en/master/install-alternative/
+	  which composer.phar
+	  echo $PATH
+	  composer.phar global require drush/drush:dev-master
+          export PATH="$HOME/.composer/vendor/bin:$PATH" : write in the end
+	  
+
+
+
+To see the difference between...
+
+... your working copy and staging area:
+
+ git diff
+... staging area and the latest commit:
+
+ git diff --staged
+... your working copy and commit 4ac0a6733:
+
+ git diff 4ac0a6733
+... commit 4ac0a6733 and the latest commit:
+
+ git diff 4ac0a6733 HEAD
+... commit 4ac0a6733 and commit 826793951
+
+ git diff 4ac0a6733 826793951
+
+
+
+
+
+
+creating orphan branch
+
+ git checkout --orphan branch-name
+ 
+change remote head branch
+ 
+ git remote set-head origin branch name
+
+delete a branch
+ git branch -d branch name
+
+forefully delete a branch
+ git branch -D branch name
+
+merged branch
+git branch --merged
+
+not merged branch
+git branch --no-merged
+
+squash and fixup
+
+git checkout -- filename         ------ discard changes in working directory if you don't want to commit
+
+
+http://githooks.com/
+
+
+
+http://stackoverflow.com/questions/19069179/how-to-ignore-files-in-git-merge
+
+https://github.com/git-tips/tips
+
+http://stackoverflow.com/questions/8840551/configuring-user-and-password-with-git-bash
+
+http://stackoverflow.com/questions/10116373/git-push-error-repository-not-found
+
+git remote -v
+
+git revert -m 1 commit id
+
+git stash
+
+git stash pop
+
+git stash -u   -- for untracked
+
+
+http://www.saintsjd.com/2011/01/what-is-a-bare-git-repository/           --bare repository
+
+
+
+git branch -vv   ---to check upstream
+
+//Remotes are simply an alias that store the url of repositories. You can see what url belongs to each remote by using
+git remote -v
+
+
+
+git pull= git fetch origin + git merge origin/master (or whatever your upstream is)
+git pull origin = git pull (as long as origin is your upstream remote)
+git pull origin master = git fetch origin master+git merge FETCH_HEAD
+git pull origin/master : invalid unless you have a remote called "origin/master"
+git pull origin HEAD:master : Tries to directly reset you local master to whatever HEAD points to on origin. (Don't do this.)
+
+
+
+
+https://nathanleclaire.com/blog/2014/09/14/dont-be-scared-of-git-rebase/
+
+
+
+
+
+Memcache is a more or less a database. It's a database that doesn't persist data and only stores it in memory. It also doesn't really care if it throws data out. The natural use for Memcache is to cache things internally in your application. Memcache uses its own specific protocol to store and fetch content. 
+
+Varnish on the other hand stores rendered pages. It talks HTTP so it will typically talk directly to a HTTP client and deliver pages from it's cache whenever there is a cache hit. When there is a cache miss it will go and fetch the content from the web server, store it and deliver a copy to the user.
+
+
+http://webdeveloperplus.com/general/10-useful-advanced-git-commands/
+
+http://www.askaswiss.com/2016/01/12-useful-advanced-git-commands.html
+
+
+
+https://www.drupal.org/node/171194
+
+
+
+
+
+variable store:
+
+function hcp_overrides_update_7003() {
+   // SR-158286 - Change Site Name.
+   // Updating value for site_name inside variable & variable_store.
+   variable_store_set('language', 'en', 'site_name', 'Pfizer for Professionals');
+   variable_store_set('language', 'fr-BE', 'site_name', 'Pfizer for Professionals');
+   variable_store_set('language', 'nl-BE', 'site_name', 'Pfizer for Professionals');
+   variable_set('site_name', 'Pfizer for Professionals');
+ }

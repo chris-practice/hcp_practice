@@ -1,0 +1,37 @@
+Hi Frank,
+
+We have started UAT for France and will be sharing the UAT findings by 13th Sep. Also, we found issues in the KT documents shared with us, please see the details below:
+
+1. Platform version- As per PI Tool Report, Dev5 Platform version is v2.7.7. But latest stable platform version is v2.7.5. Please revert it back to v2.7.5.
+
+2. Deployment Verification Checklist- Deployment Verification Checklist isincomplete. Please find the attached  Checklist and incomplete fields are highlighted in red. Please provided your input on incomplete fields and revert it back to me.
+
+3. QA Document: QA document was not shared as a part of KT at https://pfizer.box.com/s/5546cx24bubvggwy7a2q8p2rtjzxh29c . 
+
+4. Epic Ticket- Please provide the below additional information:
+1. There is no clarity on features of 2.7 being added. Please refer https://digitalpfizer.atlassian.net/browse/MD-1636.
+
+2. Following JIRA tickets are still open- PUVTMM-272, PUVTMM-283, PUVTMM-324, PUVTMM-340, PUVTMM-383
+
+
+5. We have below observations in SDLC / Deployment document - 
+1. Please confirm if SR145616 is correct.
+
+2. As per Row #7, platform version of upgraded environment should be 2.7.6 but it should be at 2.7.5 as higher versions are not stable at the moment.
+
+3. Row # 9 , Please verify the change type. 'Maintenance' is showing as change type.
+
+4. Please verify if CMDB id is correct and compliance status is confirmed by solution center owner.
+
+5. Please confirm the Business Owner, BT representative and BT Project Manager.
+
+6. In Deployment instructions-  Please mention the instructions for moving Amazon S3 buckets for CSS/JS and brand json files from stage to prod.
+
+
+6. Omniture report- Omniture report was not shared as a part of KT at https://pfizer.box.com/s/5546cx24bubvggwy7a2q8p2rtjzxh29c.
+
+7. Please verify and confirm the content freeze period.
+
+8. Please provide the Self Service users list and content editor list.
+
+9. Please provide the Market customization details if any additional feature is implemented.

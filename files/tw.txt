@@ -1,0 +1,26 @@
+Application ID: cg5s2kqg5cmjym58fc83rmjj5k
+
+client id
+6v94j87qs9t85x4n3ewy6p5qe7u8zy8s
+secret
+e5apfxb868ktzvb6sy85tzscdg5nmc96
+
+________________________________________
+Stage:
+Application ID: d344fh4fafd233gu3rqzsswqqf
+client id
+ts37fhcgkjcrep6mnzyjy6j6uwanmq7c
+secret
+z3r5wjjqr3vpxmcx7pdetnvtf75scpw7
+
+
+__________________________________________
+
+
+Dev
+Create New Client Application ID: cg5s2kqg5cmjym58fc83rmjj5k
+client id
+6cyuqchaxje3fbak3ewkqquewjt3md55
+secret
+vz4kcukankdgqtkwhzpwyrdxyvkah3fy
+
