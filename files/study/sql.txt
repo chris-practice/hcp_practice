@@ -1,4 +1,4 @@
-/**
+﻿/**
 * Disable Development module.
 */
 function hcp_overrides_update_7109() {
@@ -150,6 +150,8 @@ git pull origin HEAD:master : Tries to directly reset you local master to whatev
 
 https://nathanleclaire.com/blog/2014/09/14/dont-be-scared-of-git-rebase/
 
+git rebase -i commitid^
+
 
 
 
@@ -181,3 +183,59 @@ function hcp_overrides_update_7003() {
    variable_store_set('language', 'nl-BE', 'site_name', 'Pfizer for Professionals');
    variable_set('site_name', 'Pfizer for Professionals');
  }
+
+
+vagrant setup
+
+https://github.com/geerlingguy/drupal-vm
+GitHub
+geerlingguy/drupal-vm
+drupal-vm - A VM for Drupal development
+ 
+
+[12:54] 
+Install Vagrant and VirtualBox.
+
+[12:54] 
+take clone https://github.com/geerlingguy/drupal-vm.git
+GitHub
+geerlingguy/drupal-vm
+drupal-vm - A VM for Drupal development
+ 
+
+[12:55] 
+Using Github with SSH over gitbash
+
+https://help.github.com/articles/connecting-to-github-with-ssh/
+https://help.github.com/articles/checking-for-existing-ssh-keys
+https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account
+https://help.github.com/articles/testing-your-ssh-connection
+https://help.github.com/articles/working-with-ssh-key-passphrases
+
+vagrant box add --name geerlingguy/ubuntu1604 D:\chris\geerlingguy_ubuntu1604
+    
+	• eval $(ssh-agent -s)
+    •  ssh-add ~/.ssh/id_rsa
+    •  ssh -T git@github.com
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SHA256:Freh+pQWA9QMvSlpHXldVraFFb145OIfR6LBbfvp150 chrispereira21@gmail.com
